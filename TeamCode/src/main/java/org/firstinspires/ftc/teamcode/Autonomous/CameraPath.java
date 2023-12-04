@@ -188,10 +188,10 @@ public class CameraPath extends LinearOpMode
         }
 
         /* Actually do something useful */
-        if(tagOfInterest == null || tagOfInterest.id == Left){
+        if( tagOfInterest.id == Left){
             //leftCode
 
-        }else if(tagOfInterest.id == Middle){
+        }else if(tagOfInterest == null ||tagOfInterest.id == Middle){
            //MiddleCode
             sequences.blue2();
 
