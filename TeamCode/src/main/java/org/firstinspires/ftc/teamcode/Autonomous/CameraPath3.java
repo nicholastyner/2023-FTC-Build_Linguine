@@ -23,7 +23,6 @@ package org.firstinspires.ftc.teamcode.Autonomous;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
@@ -36,16 +35,15 @@ import org.openftc.apriltag.AprilTagDetection;
 import org.openftc.easyopencv.OpenCvCamera;
 import org.openftc.easyopencv.OpenCvCameraFactory;
 import org.openftc.easyopencv.OpenCvCameraRotation;
-import org.openftc.easyopencv.OpenCvInternalCamera;
 
 import java.util.ArrayList;
 
-@Autonomous(name = "First Auton")
-public class CameraPath extends LinearOpMode
+@Autonomous(name = "Third Auton")
+public class CameraPath3 extends LinearOpMode
 {
     Hardware hardware;
     Utilities utilities;
-    CameraPathSequence sequences;
+    CameraPathSequence3 sequences;
     OpenCvCamera camera;
     AprilTagDetectionPipeline aprilTagDetectionPipeline;
 
@@ -78,9 +76,9 @@ public class CameraPath extends LinearOpMode
         Assert.assertNotNull(hardwareMap);
         hardware.init(hardwareMap);
         utilities = new Utilities(hardware);
-        sequences = new CameraPathSequence(hardwareMap, utilities);
+        sequences = new CameraPathSequence3(hardwareMap, utilities);
         utilities = new Utilities(hardware);
-        sequences = new CameraPathSequence(hardwareMap,utilities);
+        sequences = new CameraPathSequence3(hardwareMap,utilities);
 
         int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());
         camera = OpenCvCameraFactory.getInstance().createWebcam(hardwareMap.get(WebcamName.class, "Webcam 1"), cameraMonitorViewId);
@@ -191,12 +189,14 @@ public class CameraPath extends LinearOpMode
         if( tagOfInterest.id == Left){
             //leftCode
 
+
         }else if(tagOfInterest == null ||tagOfInterest.id == Middle){
            //MiddleCode
-            sequences.blue1();
+
 
         }else if(tagOfInterest.id == Right){
             //RightCode
+            sequences.blue3();
         }
 
 

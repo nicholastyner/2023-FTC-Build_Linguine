@@ -1,29 +1,25 @@
 package org.firstinspires.ftc.teamcode.Autonomous;
 
+import com.acmerobotics.roadrunner.geometry.Pose2d;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
-import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.hardwareMap;
 import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.acmerobotics.roadrunner.trajectory.Trajectory;
 import org.firstinspires.ftc.teamcode.hardware.Hardware;
 import org.firstinspires.ftc.teamcode.trajectorysequence.TrajectorySequence;
 
-import com.acmerobotics.roadrunner.geometry.Pose2d;
-
-public class CameraPathSequence {
+public class CameraPathSequence3 {
     SampleMecanumDrive drive;
     Hardware hardware;
     Utilities utilities;
 
     //Trajectories
     TrajectorySequence toGoal;
-    TrajectorySequence parkTwo;
+    TrajectorySequence parkThree;
 
 
     Pose2d startPose = new Pose2d(-60,12,Math.toRadians(180));
 
-    public CameraPathSequence(HardwareMap hardwareMap , Utilities utilities){
+    public CameraPathSequence3(HardwareMap hardwareMap , Utilities utilities){
         hardware = new Hardware();
         hardware.init(hardwareMap);
         this.utilities = utilities;
@@ -31,14 +27,14 @@ public class CameraPathSequence {
         drive.setPoseEstimate(startPose);
 
         toGoal = drive.trajectorySequenceBuilder(startPose)
-                .strafeLeft(30)
-                .forward(-73)
-                .turn(Math.toRadians(12.5))
+                .strafeLeft(15)
+                .forward(-65)
+                .turn(Math.toRadians(43.4))
                 .build();
-        parkTwo = drive.trajectorySequenceBuilder((toGoal.end()))
-                .turn(Math.toRadians(-12.5))
-                .strafeRight(14)
-                .forward(-16)
+        parkThree = drive.trajectorySequenceBuilder((toGoal.end()))
+                .turn(Math.toRadians(-43.4))
+                .strafeRight(5)
+                .forward(17)
                 .build();
 
 
@@ -46,13 +42,14 @@ public class CameraPathSequence {
 
     }
 
-    public void blue1(){
+    public void blue3(){
         drive.followTrajectorySequence(toGoal);
-        utilities.outtakeWheel(.9);
+        utilities.outtakeWheel(0.87);
         utilities.wait(2000);
         utilities.shoot();
+        utilities.wait(2000);
         utilities.outtakeWheel(0);
-        drive.followTrajectorySequence(parkTwo);
+        drive.followTrajectorySequence(parkThree);
 
     }
 
