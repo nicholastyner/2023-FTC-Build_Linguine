@@ -38,12 +38,12 @@ import org.openftc.easyopencv.OpenCvCameraRotation;
 
 import java.util.ArrayList;
 
-@Autonomous(name = "Second Auton")
-public class CameraPath2 extends LinearOpMode
+@Autonomous(name = "Blue 2 Auton")
+public class Blue2Auton extends LinearOpMode
 {
     Hardware hardware;
     Utilities utilities;
-    CameraPathSequence2 sequences;
+    Blue2Sequence sequences;
     OpenCvCamera camera;
     AprilTagDetectionPipeline aprilTagDetectionPipeline;
 
@@ -76,9 +76,9 @@ public class CameraPath2 extends LinearOpMode
         Assert.assertNotNull(hardwareMap);
         hardware.init(hardwareMap);
         utilities = new Utilities(hardware);
-        sequences = new CameraPathSequence2(hardwareMap, utilities);
+        sequences = new Blue2Sequence(hardwareMap, utilities);
         utilities = new Utilities(hardware);
-        sequences = new CameraPathSequence2(hardwareMap,utilities);
+        sequences = new Blue2Sequence(hardwareMap,utilities);
 
         int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());
         camera = OpenCvCameraFactory.getInstance().createWebcam(hardwareMap.get(WebcamName.class, "Webcam 1"), cameraMonitorViewId);
@@ -188,11 +188,11 @@ public class CameraPath2 extends LinearOpMode
         /* Actually do something useful */
         if( tagOfInterest.id == Left){
             //leftCode
-            sequences.blue2();
+
 
         }else if(tagOfInterest == null ||tagOfInterest.id == Middle){
-           //MiddleCode
-
+            //MiddleCode
+            sequences.blue2();
 
         }else if(tagOfInterest.id == Right){
             //RightCode

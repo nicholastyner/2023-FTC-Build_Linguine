@@ -150,9 +150,9 @@ public class LinguineTeleOp extends OpMode {
         //   hardware.intake.setPower(INTAKE_SPEED);
         //}
         if(gamepad1.left_trigger > 0.0){
-            hardware.intake.setPower(gamepad1.left_trigger);
+            hardware.intake.setPower(-gamepad1.left_trigger);
         }else if(gamepad1.right_trigger > 0.0){
-            hardware.intake.setPower(-gamepad1.right_trigger);
+            hardware.intake.setPower(gamepad1.right_trigger);
         }else{
             hardware.intake.setPower(0);
         }
@@ -173,7 +173,7 @@ public class LinguineTeleOp extends OpMode {
 
         //New Outtake Flywheel controls
         if(gamepad2.square){
-            hardware.outtake.setPower(-1.0);
+            hardware.outtake.setPower(1.0);
             telemetry.addData("Flywheels: ", "Spinning");
         }else{
             hardware.outtake.setPower(0.0);

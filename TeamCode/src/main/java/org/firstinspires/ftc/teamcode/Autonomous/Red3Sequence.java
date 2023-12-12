@@ -1,13 +1,17 @@
 package org.firstinspires.ftc.teamcode.Autonomous;
 
-import com.acmerobotics.roadrunner.geometry.Pose2d;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
+import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.hardwareMap;
 import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.acmerobotics.roadrunner.trajectory.Trajectory;
 import org.firstinspires.ftc.teamcode.hardware.Hardware;
 import org.firstinspires.ftc.teamcode.trajectorysequence.TrajectorySequence;
 
-public class CameraPathSequence2 {
+import com.acmerobotics.roadrunner.geometry.Pose2d;
+
+public class Red3Sequence {
     SampleMecanumDrive drive;
     Hardware hardware;
     Utilities utilities;
@@ -19,7 +23,7 @@ public class CameraPathSequence2 {
 
     Pose2d startPose = new Pose2d(-60,12,Math.toRadians(180));
 
-    public CameraPathSequence2(HardwareMap hardwareMap , Utilities utilities){
+    public Red3Sequence(HardwareMap hardwareMap , Utilities utilities){
         hardware = new Hardware();
         hardware.init(hardwareMap);
         this.utilities = utilities;
@@ -27,13 +31,14 @@ public class CameraPathSequence2 {
         drive.setPoseEstimate(startPose);
 
         toGoal = drive.trajectorySequenceBuilder(startPose)
-                .strafeLeft(30)
-                .forward(-69)
-                .turn(Math.toRadians(31))
+                .strafeLeft(27)
+                .forward(-73)
+                .turn(Math.toRadians(44.5))
                 .build();
         parkTwo = drive.trajectorySequenceBuilder((toGoal.end()))
-                .turn(Math.toRadians(-31))
-                .strafeRight(40)
+                .turn(Math.toRadians(-44.5))
+                .strafeRight(20)
+                .forward(34)
                 .build();
 
 
@@ -41,12 +46,11 @@ public class CameraPathSequence2 {
 
     }
 
-    public void blue2(){
+    public void red3(){
         drive.followTrajectorySequence(toGoal);
-        utilities.outtakeWheel(0.65);
+        utilities.outtakeWheel(1.0);
         utilities.wait(2000);
         utilities.shoot();
-        utilities.wait(2000);
         utilities.outtakeWheel(0);
         drive.followTrajectorySequence(parkTwo);
 
