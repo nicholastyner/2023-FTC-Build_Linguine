@@ -29,13 +29,12 @@ public class Blue3Sequence {
         toGoal = drive.trajectorySequenceBuilder(startPose)
                 .strafeLeft(15)
                 .forward(-65)
-                .turn(Math.toRadians(-26))
+                .turn(Math.toRadians(-12.5))
                 .build();
         parkThree = drive.trajectorySequenceBuilder((toGoal.end()))
-                .turn(Math.toRadians(26))
-                .forward(25)
-                .strafeRight(25)
-                .forward(5)
+                .turn(Math.toRadians(12.5))
+                .strafeRight(-10)
+                .forward(-29)
                 .build();
 
 

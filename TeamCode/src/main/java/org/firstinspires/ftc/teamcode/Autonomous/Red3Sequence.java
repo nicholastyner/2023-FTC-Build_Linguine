@@ -31,14 +31,14 @@ public class Red3Sequence {
         drive.setPoseEstimate(startPose);
 
         toGoal = drive.trajectorySequenceBuilder(startPose)
-                .strafeLeft(27)
+                .strafeLeft(30)
                 .forward(-73)
-                .turn(Math.toRadians(44.5))
+                .turn(Math.toRadians(12.5))
                 .build();
         parkTwo = drive.trajectorySequenceBuilder((toGoal.end()))
-                .turn(Math.toRadians(-44.5))
-                .strafeRight(20)
-                .forward(34)
+                .turn(Math.toRadians(-12.5))
+                .strafeRight(14)
+                .forward(-16)
                 .build();
 
 
