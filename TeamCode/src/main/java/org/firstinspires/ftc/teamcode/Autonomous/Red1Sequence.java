@@ -29,12 +29,12 @@ public class Red1Sequence {
         toGoal = drive.trajectorySequenceBuilder(startPose)
                 .strafeLeft(15)
                 .forward(-65)
-                .turn(Math.toRadians(12.5))
+                .turn(Math.toRadians(11.5))
                 .build();
         parkThree = drive.trajectorySequenceBuilder((toGoal.end()))
-                .turn(Math.toRadians(-12.5))
+                .turn(Math.toRadians(-11.5))
                 .strafeRight(10)
-                .forward(-29)
+                .forward(-27)
                 .build();
 
 
@@ -44,7 +44,7 @@ public class Red1Sequence {
 
     public void red1(){
         drive.followTrajectorySequence(toGoal);
-        utilities.outtakeWheel(0.8);
+        utilities.outtakeWheel(0.65);
         utilities.wait(2000);
         utilities.shoot();
         utilities.wait(2000);

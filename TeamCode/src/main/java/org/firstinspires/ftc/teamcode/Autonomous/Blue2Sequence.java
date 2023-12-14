@@ -27,13 +27,14 @@ public class Blue2Sequence {
         drive.setPoseEstimate(startPose);
 
         toGoal = drive.trajectorySequenceBuilder(startPose)
-                .strafeLeft(-25)
-                .forward(-66)
-                .turn(Math.toRadians(-24))
+                .strafeLeft(4)
+                .forward(-73)
+                .turn(Math.toRadians(-32))
                 .build();
         parkTwo = drive.trajectorySequenceBuilder((toGoal.end()))
-                .turn(Math.toRadians(24))
-                .strafeRight(-40)
+                .turn(Math.toRadians(32))
+                .strafeLeft(-30)
+                .forward(-18)
                 .build();
 
 
@@ -43,7 +44,7 @@ public class Blue2Sequence {
 
     public void blue2(){
         drive.followTrajectorySequence(toGoal);
-        utilities.outtakeWheel(0.65);
+        utilities.outtakeWheel(.65);
         utilities.wait(2000);
         utilities.shoot();
         utilities.wait(2000);

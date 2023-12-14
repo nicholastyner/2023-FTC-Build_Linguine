@@ -27,14 +27,14 @@ public class Blue3Sequence {
         drive.setPoseEstimate(startPose);
 
         toGoal = drive.trajectorySequenceBuilder(startPose)
-                .strafeLeft(15)
-                .forward(-65)
-                .turn(Math.toRadians(-12.5))
+                .strafeLeft(4)
+                .forward(-73)
+                .turn(Math.toRadians(-22.5))
                 .build();
         parkThree = drive.trajectorySequenceBuilder((toGoal.end()))
-                .turn(Math.toRadians(12.5))
-                .strafeRight(-10)
-                .forward(-29)
+                .turn(Math.toRadians(22.5))
+                .strafeLeft(-28)
+                .forward(24)
                 .build();
 
 
@@ -44,7 +44,7 @@ public class Blue3Sequence {
 
     public void blue3(){
         drive.followTrajectorySequence(toGoal);
-        utilities.outtakeWheel(0.87);
+        utilities.outtakeWheel(1);
         utilities.wait(2000);
         utilities.shoot();
         utilities.wait(2000);

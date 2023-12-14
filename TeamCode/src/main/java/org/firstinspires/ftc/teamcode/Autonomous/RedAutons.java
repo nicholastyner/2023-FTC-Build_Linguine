@@ -199,12 +199,12 @@ public class RedAutons extends LinearOpMode
 
 
 
-        }else if(tagOfInterest.id == middle){
+        }else if(tagOfInterest.id == right){
             //MiddleCode
             telemetry.addLine("red2");
             sequence2.red2();
 
-        }else if(tagOfInterest == null || tagOfInterest.id == right){
+        }else if(tagOfInterest == null || tagOfInterest.id == middle){
             //RightCode
             telemetry.addLine("red3");
             sequence3.red3();
